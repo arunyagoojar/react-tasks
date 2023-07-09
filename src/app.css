@@ -5,8 +5,9 @@ html {
   background-position: center;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
+  background-color: black;
 }
 
 body {
@@ -357,4 +358,14 @@ body {
 
 [class^="button-"]:focus ~ li {
   animation: fadeOut 500ms forwards;
+}
+
+.credits{
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center !important;
+  font-size: smaller;
+  margin-top: 70px;
+}
+.credits a{
+  color: rgba(255, 255, 255, 0.5);
 }

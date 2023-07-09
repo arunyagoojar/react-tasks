@@ -79,6 +79,7 @@ export default function App() {
           );
         })}
       </ul>
+      <p className="credits">React to your tasks with this amazing app made by <a href="https://arunyagoojar.me/">Arunya</a></p>
     </>
   );
 }
