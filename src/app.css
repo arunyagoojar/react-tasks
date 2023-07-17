@@ -19,6 +19,18 @@ body {
   margin: 7em 0 0;
 }
 
+.logod{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -80px 0 25px;
+}
+.logo{
+  width: 280px;
+  height: 100px;
+  object-fit: cover;
+}
+
 @media (max-width: 1300px) {
   .New-Item-Form {
     width: 450px !important;
@@ -30,6 +42,17 @@ body {
 }
 
 @media (max-width: 800px) {
+  .logod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -80px 0 5px;
+  }
+  .logo{
+    width: 220px;
+    height: 100px;
+    object-fit: cover;
+  }
   .New-Item-Form {
     width: 380px !important;
   }
@@ -106,42 +129,6 @@ body {
 }
 
 /*github*/
-.button-flex{
-  display: flex;
-  justify-content: center;
-  margin: -80px 0 40px;
-  width: 100%;
-}
-.buttong {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 15px;
-  gap: 15px;
-  background-color: rgba(255, 255, 255, 0.15);
-  outline: 0px #181717 solid;
-  outline-offset: -3px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: 400ms;
-}
-
-.buttong .textt {
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 700;
-  font-size: 1em;
-  transition: 400ms;
-}
-
-.buttong svg path {
-  transition: 400ms;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.buttong:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
 
 .New-Item-Form {
   width: 500px;
@@ -426,36 +413,16 @@ body {
 }
 
 /*Animations*/
-
-.list li {
-  animation: fadeIn 200ms;
-}
-
-@keyframes fadeIn {
+@keyframes swing-out-top-bck {
   0% {
-    opacity: 0;
-    transform: translateY(-3px);
-  }
-
-  100% {
+    transform: rotateX(0deg);
+    transform-origin: top;
     opacity: 1;
-    transform: translateY(0);
   }
-}
-
-.button:focus~li {
-  animation: fadeOut 500ms forwards;
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   100% {
+    transform: rotateX(-100deg);
+    transform-origin: top;
     opacity: 0;
-    transform: translateY(-20px);
   }
 }
 
@@ -464,33 +431,35 @@ body {
 }
 
 .button:focus {
-  animation: fadeOutTrigger 200ms;
+  animation: swing-out-top-bck 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
 }
 
-@keyframes fadeOutTrigger {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Add the following CSS rules */
 .list li {
   position: relative;
 }
 
 [class^="button-"]:focus~li {
-  animation: fadeOut 500ms forwards;
+  animation: swing-out-top-bck 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
 }
 
-.credits {
-  color: rgba(255, 255, 255, 0.5);
-  text-align: center !important;
-  font-size: smaller;
-  margin-top: 70px;
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
 }
 
-.credits a {
-  color: rgba(255, 255, 255, 0.5);
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.moving {
+  animation: moveDown 0.3s forwards, slideUp 1s 0.5s forwards;
 }
