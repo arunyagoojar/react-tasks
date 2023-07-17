@@ -16,45 +16,131 @@ body {
   width: auto;
   display: flex;
   justify-content: center;
-  margin: 7em 0 0 ;
+  margin: 7em 0 0;
 }
 
 @media (max-width: 1300px) {
   .New-Item-Form {
     width: 450px !important;
   }
+
   .input {
     width: 72% !important;
   }
 }
+
 @media (max-width: 800px) {
   .New-Item-Form {
     width: 380px !important;
   }
+
   .input {
     width: 68% !important;
   }
+
+  /*Button  delete*/
+  .button {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0;
+  }
+
+  .IconContainer {
+    width: 32px;
+    height: 32px;
+  }
+
+  .text {
+    display: none !important;
+  }
+
+  .button:hover .IconContainer {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    width: 32px !important;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+
+  .icon {
+    filter: grayscale(100%) invert(100%) brightness(200%);
+    transition-duration: .3s;
+  }
+
+  .button:hover .text {
+    transform: translate(10px);
+    width: 0;
+    font-size: 0;
+    transition-duration: .3s;
+  }
+
+  .button:active {
+    transform: scale(0.95);
+    transition-duration: .3s;
+  }
 }
+
 @media (max-width: 600px) {
   .New-Item-Form {
     width: 350px !important;
   }
+
   .input {
     width: 65% !important;
   }
 }
+
 @media (max-width: 500px) {
   .New-Item-Form {
     width: 300px !important;
   }
 }
+
 @media (max-width: 400px) {
   .New-Item-Form {
     width: 270px !important;
   }
+
   .input {
     width: 60% !important;
   }
+}
+
+/*github*/
+.button-flex{
+  display: flex;
+  justify-content: center;
+  margin: -80px 0 40px;
+  width: 100%;
+}
+.buttong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  gap: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  outline: 0px #181717 solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.buttong .textt {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 700;
+  font-size: 1em;
+  transition: 400ms;
+}
+
+.buttong svg path {
+  transition: 400ms;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.buttong:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .New-Item-Form {
@@ -69,7 +155,7 @@ body {
   border-radius: 10mm;
   border: 1px solid rgba(209, 213, 219, 0.3);
   margin: 0px auto;
-  }
+}
 
 /*Input*/
 .input {
@@ -85,11 +171,13 @@ body {
   padding: 0 1.5rem;
   border: 2px solid transparent;
   font-size: 1rem;
-  transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+  transition: border-color .3s cubic-bezier(.25, .01, .25, 1) 0s, color .3s cubic-bezier(.25, .01, .25, 1) 0s, background .2s cubic-bezier(.25, .01, .25, 1) 0s;
 }
-.input::placeholder{
-  color: rgba(0,0,0,0.5);
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
+
 /*Input End*/
 .list {
   position: relative;
@@ -140,7 +228,8 @@ body {
   font-size: 18px;
   user-select: none;
 }
-.custom-checkbox input:checked + span {
+
+.custom-checkbox input:checked+span {
   /* Style when checked */
   color: rgba(0, 0, 0, 0.5);
   text-decoration: line-through;
@@ -156,7 +245,8 @@ body {
 
 .custom-checkbox span {
   display: inline-block;
-  line-height: 20px; /* Match the height of the checkbox */
+  line-height: 20px;
+  /* Match the height of the checkbox */
 }
 
 .custom-checkbox span::before {
@@ -167,7 +257,8 @@ body {
   height: 27px;
   width: 27px;
   transition: background-color 0.3s;
-  transform: translateY(-50%); /* Vertically center the checkbox */
+  transform: translateY(-50%);
+  /* Vertically center the checkbox */
 
 
   backdrop-filter: blur(18px) saturate(180%);
@@ -177,8 +268,8 @@ body {
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
-.custom-checkbox input:checked ~ span::before {
-  
+.custom-checkbox input:checked~span::before {
+
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
   background: rgba(0, 0, 0, 0.5);
@@ -199,43 +290,23 @@ body {
   transition: all 0.3s;
 }
 
-.custom-checkbox input:checked ~ span::after {
+.custom-checkbox input:checked~span::after {
   transform: translate(-50%, -50%) rotate(45deg) scale(1);
 }
 
 /* Optional: Add a hover effect for the checkbox */
 .custom-checkbox:hover span::before {
-  
+
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
   background: rgba(255, 255, 255, 0.3);
   border-radius: 10mm;
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
+
 /*End checkbox*/
 
 /*Button  Add*/
-
-/*Button  delete*/
-
-.button {
-  width: 40px;
-  height: 40px;
-  border: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition-duration: .3s;
-  overflow: hidden;
-  position: relative;
-
-  backdrop-filter: blur(5px) saturate(180%);
-  -webkit-backdrop-filter: blur(5px) saturate(180%);
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10mm;
-}
 .button2 {
   height: 44px;
   width: 44px;
@@ -255,14 +326,9 @@ body {
   border-radius: 10mm;
 }
 
-.button .svgIcon {
-  width: 15px;
-  transition-duration: .3s;
-  filter: invert();
-}
 .button2 .svgIcon {
   width: 30px;
-  transition-duration: .3s;  
+  transition-duration: .3s;
   filter: invert();
 }
 
@@ -270,42 +336,96 @@ body {
   fill: white;
 }
 
-.button:hover  {
-  transform: scale(1.1);
-  transition-duration: .3s;
-  background-color: rgba(255, 69, 69,0.75);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  border-radius: 10mm;
-  align-items: center;
-}
 .button2:hover {
   transform: scale(1.1);
   transition-duration: .3s;
   border-radius: 10mm;
   align-items: center;
 }
-.button:hover .svgIcon{
-  transform: scale(1.15);
-  transition-duration: .3s;
-}
-.button2:hover .svgIcon{
+
+.button2:hover .svgIcon {
   transform: scale(1.1);
   transition-duration: .3s;
 }
 
-.button:hover::before {
-  font-size: 13px;
-  opacity: 1;
-  transform: translateY(30px);
-  transition-duration: .3s;
-}
 .button2:hover::before {
   font-size: 13px;
   opacity: 1;
   transition-duration: .3s;
 }
 
+/*Button  delete*/
+.button {
+  width: 100px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.249);
+  background-color: rgba(12, 12, 12, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+}
+
+.IconContainer {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: .3s;
+}
+
+.icon {
+  width: 23px;
+  height: auto;
+  border-radius: 1px;
+  filter: grayscale(100%) invert(100%) brightness(200%);
+}
+
+.text {
+  height: 100%;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1;
+  transition-duration: .3s;
+  font-size: 1.04em;
+}
+
+.button:hover .IconContainer {
+  background-color: #FA5252;
+  width: 90px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.button:hover .icon {
+  filter: grayscale(100%) invert(100%) brightness(200%);
+  transition-duration: .3s;
+}
+
+.button:hover .text {
+  transform: translate(10px);
+  width: 0;
+  font-size: 0;
+  transition-duration: .3s;
+}
+
+.button:active {
+  transform: scale(0.95);
+  transition-duration: .3s;
+}
+
+/*Animations*/
 
 .list li {
   animation: fadeIn 200ms;
@@ -316,13 +436,14 @@ body {
     opacity: 0;
     transform: translateY(-3px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.button:focus ~ li {
+.button:focus~li {
   animation: fadeOut 500ms forwards;
 }
 
@@ -331,13 +452,14 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+
   100% {
     opacity: 0;
     transform: translateY(-20px);
   }
 }
 
-.button:focus ~ li {
+.button:focus~li {
   display: none;
 }
 
@@ -346,7 +468,9 @@ body {
 }
 
 @keyframes fadeOutTrigger {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
 }
@@ -356,16 +480,17 @@ body {
   position: relative;
 }
 
-[class^="button-"]:focus ~ li {
+[class^="button-"]:focus~li {
   animation: fadeOut 500ms forwards;
 }
 
-.credits{
+.credits {
   color: rgba(255, 255, 255, 0.5);
   text-align: center !important;
   font-size: smaller;
   margin-top: 70px;
 }
-.credits a{
+
+.credits a {
   color: rgba(255, 255, 255, 0.5);
 }

@@ -2,6 +2,7 @@ import "./app.css";
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import AddItemForm from "./AddItemForm";
+import deleteicon from "./delete.svg"
 
 export default function App() {
 
@@ -16,7 +17,7 @@ export default function App() {
     localStorage.setItem("ITEMS", JSON.stringify(add));
   }, [add]);
 
-  
+
   function addItem(title) {
     set((currentadd) => {
       return [
@@ -43,13 +44,13 @@ export default function App() {
 
   function deleteadd(id) {
     const element = document.querySelector(`.button-${id}`).parentNode;
-  element.style.animation = "fadeOut 500ms forwards";
+    element.style.animation = "fadeOut 500ms forwards";
 
-  setTimeout(() => {
-    set((currentadd) => {
-      return currentadd.filter((add) => add.id !== id);
-    });
-  }, 150);
+    setTimeout(() => {
+      set((currentadd) => {
+        return currentadd.filter((add) => add.id !== id);
+      });
+    }, 150);
   }
 
   // Sort the todos based on completion status
@@ -57,6 +58,14 @@ export default function App() {
 
   return (
     <>
+      <div className="button-flex">
+        <button className="buttong">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0.296997C5.37 0.296997 0 5.67 0 12.297C0 17.6 3.438 22.097 8.205 23.682C8.805 23.795 9.025 23.424 9.025 23.105C9.025 22.82 9.015 22.065 9.01 21.065C5.672 21.789 4.968 19.455 4.968 19.455C4.422 18.07 3.633 17.7 3.633 17.7C2.546 16.956 3.717 16.971 3.717 16.971C4.922 17.055 5.555 18.207 5.555 18.207C6.625 20.042 8.364 19.512 9.05 19.205C9.158 18.429 9.467 17.9 9.81 17.6C7.145 17.3 4.344 16.268 4.344 11.67C4.344 10.36 4.809 9.29 5.579 8.45C5.444 8.147 5.039 6.927 5.684 5.274C5.684 5.274 6.689 4.952 8.984 6.504C9.944 6.237 10.964 6.105 11.984 6.099C13.004 6.105 14.024 6.237 14.984 6.504C17.264 4.952 18.269 5.274 18.269 5.274C18.914 6.927 18.509 8.147 18.389 8.45C19.154 9.29 19.619 10.36 19.619 11.67C19.619 16.28 16.814 17.295 14.144 17.59C14.564 17.95 14.954 18.686 14.954 19.81C14.954 21.416 14.939 22.706 14.939 23.096C14.939 23.411 15.149 23.786 15.764 23.666C20.565 22.092 24 17.592 24 12.297C24 5.67 18.627 0.296997 12 0.296997Z" fill="white"></path>
+          </svg>
+          <p className="textt">Github</p>
+        </button>
+      </div>
       <AddItemForm onSubmit={addItem} />
       <ul className="list">
         {sortedTodos.map((add) => {
@@ -71,9 +80,10 @@ export default function App() {
                 <span>{add.title}</span>
               </label>
               <button className={`button button-${add.id}`} onClick={() => deleteadd(add.id)}>
-                <svg viewBox="0 0 448 512" className="svgIcon">
-                  <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
-                </svg>
+                <span className="IconContainer">
+                  <img className="icon" src={deleteicon} />
+                </span>
+                <p className="text">Delete</p>
               </button>
             </li>
           );
